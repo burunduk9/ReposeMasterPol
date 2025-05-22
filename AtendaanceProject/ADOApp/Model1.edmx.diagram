@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3819781d7d25404683b3d88ca9636be8" Name="Diagram1">
+        <EntityTypeShape EntityType="AtendanceDBModel.AtendanceType" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtendanceDBModel.Groupi" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtendanceDBModel.Journal" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtendanceDBModel.Role" Width="1.5" PointX="7.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtendanceDBModel.Schedule" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtendanceDBModel.Speciality" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtendanceDBModel.Student" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtendanceDBModel.Subject" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtendanceDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtendanceDBModel.User" Width="1.5" PointX="10" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="AtendanceDBModel.FK_Journal_AtendanceType" ManuallyRouted="false" />
+        <AssociationConnector Association="AtendanceDBModel.FK_Group_Speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="AtendanceDBModel.FK_Schedule_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="AtendanceDBModel.FK_Student_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="AtendanceDBModel.FK_Journal_Schedule" ManuallyRouted="false" />
+        <AssociationConnector Association="AtendanceDBModel.FK_Journal_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="AtendanceDBModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="AtendanceDBModel.FK_Schedule_Subject" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

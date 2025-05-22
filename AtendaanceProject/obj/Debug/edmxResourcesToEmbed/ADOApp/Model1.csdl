@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AtendanceDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AtendanceType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_AtendanceType" FromRole="AtendanceType" ToRole="Journal" />
+  </EntityType>
+  <EntityType Name="Groupi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="course" Type="Int32" />
+    <Property Name="id_speciality" Type="Int32" />
+    <Property Name="is_delete" Type="Boolean" />
+    <NavigationProperty Name="Speciality" Relationship="Self.FK_Group_Speciality" FromRole="Groupi" ToRole="Speciality" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Group" FromRole="Groupi" ToRole="Schedule" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Student_Group" FromRole="Groupi" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Journal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id_student" Type="Int32" />
+    <Property Name="id_schedule" Type="Int32" />
+    <Property Name="id_atendance" Type="Int32" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="AtendanceType" Relationship="Self.FK_Journal_AtendanceType" FromRole="Journal" ToRole="AtendanceType" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK_Journal_Schedule" FromRole="Journal" ToRole="Schedule" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Journal_Student" FromRole="Journal" ToRole="Student" />
+    <Property Name="is_delete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id_group" Type="Int32" />
+    <Property Name="id_subject" Type="Int32" />
+    <NavigationProperty Name="Groupi" Relationship="Self.FK_Schedule_Group" FromRole="Schedule" ToRole="Groupi" />
+    <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Schedule" FromRole="Schedule" ToRole="Journal" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK_Schedule_Subject" FromRole="Schedule" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="Speciality">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="is_delete" Type="Boolean" />
+    <NavigationProperty Name="Groupi" Relationship="Self.FK_Group_Speciality" FromRole="Speciality" ToRole="Groupi" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_group" Type="Int32" />
+    <Property Name="birthday" Type="DateTime" Precision="0" />
+    <Property Name="is_delete" Type="Boolean" />
+    <NavigationProperty Name="Groupi" Relationship="Self.FK_Student_Group" FromRole="Student" ToRole="Groupi" />
+    <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Student" FromRole="Student" ToRole="Journal" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="is_delete" Type="Boolean" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Subject" FromRole="Subject" ToRole="Schedule" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_role" Type="Int32" />
+    <Property Name="is_delete" Type="Boolean" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_Journal_AtendanceType">
+    <End Role="AtendanceType" Type="Self.AtendanceType" Multiplicity="0..1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AtendanceType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="id_atendance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group_Speciality">
+    <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+    <End Role="Groupi" Type="Self.Groupi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speciality">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Groupi">
+        <PropertyRef Name="id_speciality" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_Group">
+    <End Role="Groupi" Type="Self.Groupi" Multiplicity="0..1" />
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groupi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="id_group" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Group">
+    <End Role="Groupi" Type="Self.Groupi" Multiplicity="0..1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groupi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="id_group" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Journal_Schedule">
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="id_schedule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Journal_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="id_student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="id_role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="id_subject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AtendanceDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AtendanceType" EntityType="Self.AtendanceType" />
+    <EntitySet Name="Groupi" EntityType="Self.Groupi" />
+    <EntitySet Name="Journal" EntityType="Self.Journal" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Schedule" EntityType="Self.Schedule" />
+    <EntitySet Name="Speciality" EntityType="Self.Speciality" />
+    <EntitySet Name="Student" EntityType="Self.Student" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_Journal_AtendanceType" Association="Self.FK_Journal_AtendanceType">
+      <End Role="AtendanceType" EntitySet="AtendanceType" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group_Speciality" Association="Self.FK_Group_Speciality">
+      <End Role="Speciality" EntitySet="Speciality" />
+      <End Role="Groupi" EntitySet="Groupi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_Group" Association="Self.FK_Schedule_Group">
+      <End Role="Groupi" EntitySet="Groupi" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Group" Association="Self.FK_Student_Group">
+      <End Role="Groupi" EntitySet="Groupi" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Journal_Schedule" Association="Self.FK_Journal_Schedule">
+      <End Role="Schedule" EntitySet="Schedule" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Journal_Student" Association="Self.FK_Journal_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_Subject" Association="Self.FK_Schedule_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

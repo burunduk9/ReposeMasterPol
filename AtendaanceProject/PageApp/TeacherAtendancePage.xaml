@@ -1,0 +1,136 @@
+﻿<Page x:Class="AtendaanceProject.PageApp.TeacherAtendancePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AtendaanceProject.PageApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TeacherAtendancePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--vmvmvmvmvmvmvmvmvmvmv-->
+        <StackPanel>
+            <Label Content="search"/>
+            <TextBox x:Name="txtsearchik" TextChanged="txtsearchik_TextChanged"/>
+            
+            <Label Content="filter student"/>
+            <ComboBox x:Name="CBfilterStudent" ItemsSource="{Binding Students}" SelectionChanged="CBfilterStudent_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding surname}"/>
+                            <Label Content="{Binding name}"/>
+                            <Label Content="{Binding patronymic}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            
+            <Label Content="filter group"/>
+            <ComboBox x:Name="CBfilterGroup" ItemsSource="{Binding Groups}" SelectionChanged="CBfilterGroup_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding title}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            
+            <Label Content="filter subject"/>
+            <ComboBox x:Name="CBfilterSubject" ItemsSource="{Binding Subjects}" SelectionChanged="CBfilterSubject_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding title}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            
+            <Button x:Name="btnAddAtendance" Content="add atendance" Click="btnAddAtendance_Click"/>
+            <DatePicker x:Name="datePanel" SelectedDateChanged="datePanel_SelectedDateChanged"/>
+        </StackPanel>
+        <!--vmvmvmvmvmvmvmvmvmvmv-->
+        <StackPanel Grid.Column="1">
+            <ScrollViewer MinHeight="600" MaxHeight="800">
+                <ListView x:Name="ListAtendance" ItemsSource="{Binding Atendances}">
+                    <ListView.View>
+                        <GridView>
+                            <!--vmvmvmvmvmvmvmvmvmvmv-->
+                            <GridViewColumn Header="surname" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Student.surname}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="name" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Student.name}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="patronymic" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Student.patronymic}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!--vmvmvmvmvmvmvmvmvmvmv-->
+                            <GridViewColumn Header="group" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Schedule.Groupi.title}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="subject" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Schedule.Subject.title}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="atendance" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding AtendanceType.title}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="date" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding date}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!--vmvmvmvmvmvmvmvmvmvmv-->
+                            <GridViewColumn Header="support buttons" Width="180">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="btnEdit" Content="edit" Click="btnEdit_Click"/>
+                                            <Button x:Name="btnDelete" Content="delete" Click="btnDelete_Click"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!--vmvmvmvmvmvmvmvmvmvmv-->
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</Page>

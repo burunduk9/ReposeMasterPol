@@ -1,0 +1,38 @@
+﻿<Window x:Class="AtendaanceProject.WinApp.EditSpecialityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AtendaanceProject.WinApp"
+        mc:Ignorable="d"
+        Title="EditSpecialityWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Редактирование" FontSize="24" Margin="5" Background="#8d99ae" Grid.ColumnSpan="3"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Background="#8d99ae" Grid.ColumnSpan="3">
+            <Button x:Name="btnLeave" Content="leave" Click="btnLeave_Click"  Width="80" Height="30" Margin="10"/>
+            <Button x:Name="btnSave" Content="save" Click="btnSave_Click"  Width="80" Height="30" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Width="80">
+                <Label Content="название"/>
+                <Label Content="описание"/>
+            </StackPanel>
+            <StackPanel Width="280">
+                <TextBox x:Name="txtSpecialityTitle" Text="{Binding title}"/>
+                <TextBox x:Name="txtSpecialityDescription" Text="{Binding description}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
