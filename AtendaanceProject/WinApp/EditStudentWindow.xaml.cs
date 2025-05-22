@@ -37,16 +37,16 @@ namespace AtendaanceProject.WinApp
             // группа и дата рождения не меняются
             int group1 = selectedGroup.id;
             DateTime date1 = Convert.ToDateTime(datePanel.SelectedDate);
-            try
-            {
+            //try
+            //{
                 ClassApp.ClassCon.Connection.SaveChanges();
                 MessageBox.Show("данные были успешно обновлены", "уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex.Message}", "ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"{ex.Message}", "ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
         }
 
         private void btnLeave_Click(object sender, RoutedEventArgs e)

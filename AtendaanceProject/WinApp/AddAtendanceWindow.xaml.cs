@@ -44,7 +44,7 @@ namespace AtendaanceProject.WinApp
             var selectedSchedule = CBsubject.SelectedItem as Schedule;
             var selectedAtendance = CBatendance.SelectedItem as AtendanceType;
             var selectedDate = datePanel.SelectedDate;
-            var newJornal = new Journal
+            Journal newJornal = new Journal
             {
                 //id_student = Convert.ToInt32(txtStudent.Text),
                 //id_schedule = Convert.ToInt32(txtSubject.Text),
@@ -57,16 +57,15 @@ namespace AtendaanceProject.WinApp
                 is_delete = false
             };
             ClassApp.ClassCon.Connection.Journal.Add(newJornal);
-            try
-            {
+         
                 ClassApp.ClassCon.Connection.SaveChanges();
                 MessageBox.Show("добавление прошло успешно", "уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex.Message}", "ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"{ex.Message}", "ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
         }
         public void LoadStudent()
         {
