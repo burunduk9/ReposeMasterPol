@@ -25,7 +25,7 @@ namespace AtendaanceProject.PageApp
         public AdminSpecialityPage()
         {
             InitializeComponent();
-            Specialitys = new List<Speciality>(ClassApp.ClassCon.Connection.Speciality);
+            Specialitys = new List<Speciality>(ClassApp.ClassCon.Connection.Speciality.Where(u => u.is_delete != true));
             this.DataContext = this;
         }
 
@@ -34,11 +34,11 @@ namespace AtendaanceProject.PageApp
             string _searchLine = txtsearchik.Text;
             if (_searchLine == "")
             {
-                ListSpeciality.ItemsSource = Specialitys.ToList();
+                ListSpeciality.ItemsSource = Specialitys.Where(u => u.is_delete != true).ToList();
             }
             else
             {
-                ListSpeciality.ItemsSource = Specialitys.Where(u => u.title.StartsWith(_searchLine, StringComparison.OrdinalIgnoreCase)).ToList();
+                ListSpeciality.ItemsSource = Specialitys.Where(u => u.title.StartsWith(_searchLine, StringComparison.OrdinalIgnoreCase) && u.is_delete != true).ToList();
             }
         }
         private void btnAddSpeciality_Click(object sender, RoutedEventArgs e)
@@ -49,11 +49,8 @@ namespace AtendaanceProject.PageApp
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             var specialityEdit = (sender as Button).DataContext as Speciality;
-            var editSpecialityWindow = new WinApp.EditSpecialityWindow { DataContext = specialityEdit };
-            if (editSpecialityWindow.ShowDialog() == true)
-            {
-                ListSpeciality.ItemsSource = new List<Speciality>(ClassApp.ClassCon.Connection.Speciality.Where(u => u.is_delete != true).ToList());
-            }
+            WinApp.EditSpecialityWindow editSpeciality = new WinApp.EditSpecialityWindow(specialityEdit);
+            editSpeciality.Show();
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {

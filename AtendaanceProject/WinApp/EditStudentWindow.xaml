@@ -26,12 +26,15 @@
 
         <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
-                <Label Content="старая группа" Width="120"/>
-                <TextBox x:Name="txtGroup" Text="{Binding Group.title}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
                 <Label Content="новая группа" Width="120"/>
-                <ComboBox x:Name="CBgroup" Height="30" Width="120"/>
+                <ComboBox ItemsSource="{Binding groups}" x:Name="CBgroup" Height="30" Width="120">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding title}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <!--<ComboBox x:Name="CBgroup" Height="30" Width="120"/>-->
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
@@ -52,9 +55,12 @@
                 <Label Content="отчесвто"/>
             </StackPanel>
             <StackPanel Width="80">
-                <TextBox x:Name="txtStudentSurname" Text="{Binding surname}"/>
-                <TextBox x:Name="txtStudentName" Text="{Binding name}"/>
-                <TextBox x:Name="txtStudentPatronymic" Text="{Binding patronymic}"/>
+                <TextBox x:Name="txtStudentSurname"/>
+                <!--Text="{Binding surname}"-->
+                <TextBox x:Name="txtStudentName"/>
+                <!--Text="{Binding name}"-->
+                <TextBox x:Name="txtStudentPatronymic"/>
+                <!--Text="{Binding patronymic}"--> 
             </StackPanel>
         </StackPanel>
     </Grid>

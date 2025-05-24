@@ -1,8 +1,8 @@
-﻿using AtendaanceProject.ADOApp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,38 +12,33 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Xml.Linq;
+using AtendaanceProject.ADOApp;
 
 namespace AtendaanceProject.WinApp
 {
     /// <summary>
-    /// Логика взаимодействия для AddSpecialityWindow.xaml
+    /// Логика взаимодействия для EditSubjectWindow.xaml
     /// </summary>
-    public partial class AddSpecialityWindow : Window
+    public partial class EditSubjectWindow : Window
     {
-        public AddSpecialityWindow()
+        public static Subject subject1 = new Subject();
+        public EditSubjectWindow(Subject subjectEdit)
         {
             InitializeComponent();
+            subject1 = subjectEdit;
+            txtTitle.Text = subject1.title;
+            txtDescription.Text = subject1.description;
+            this.DataContext = this;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (txtTitle.Text == "")
-            {
-                MessageBox.Show("заполните поля");
-                return;
-            }
-            var newSpeciality = new Speciality
-            {
-                title = txtTitle.Text,
-                description = txtDescription.Text,
-                is_delete = false
-            };
-            ClassApp.ClassCon.Connection.Speciality.Add(newSpeciality);
+            subject1.title = txtTitle.Text;
+            subject1.description = txtDescription.Text;
             try
             {
                 ClassApp.ClassCon.Connection.SaveChanges();
-                MessageBox.Show("добавление прошло успешно", "уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("данные были успешно обновлены", "уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
             }
             catch (Exception ex)
@@ -51,6 +46,7 @@ namespace AtendaanceProject.WinApp
                 MessageBox.Show($"{ex.Message}", "ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void btnLeave_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

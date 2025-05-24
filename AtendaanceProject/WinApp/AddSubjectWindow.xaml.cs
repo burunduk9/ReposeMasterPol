@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,29 +18,29 @@ using System.Xml.Linq;
 namespace AtendaanceProject.WinApp
 {
     /// <summary>
-    /// Логика взаимодействия для AddSpecialityWindow.xaml
+    /// Логика взаимодействия для AddSubjectWindow.xaml
     /// </summary>
-    public partial class AddSpecialityWindow : Window
+    public partial class AddSubjectWindow : Window
     {
-        public AddSpecialityWindow()
+        public AddSubjectWindow()
         {
             InitializeComponent();
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (txtTitle.Text == "")
+            if (txtTitle.Text == "" || txtDescription.Text == "")
             {
                 MessageBox.Show("заполните поля");
                 return;
             }
-            var newSpeciality = new Speciality
+            var newSubject = new Subject
             {
                 title = txtTitle.Text,
                 description = txtDescription.Text,
                 is_delete = false
             };
-            ClassApp.ClassCon.Connection.Speciality.Add(newSpeciality);
+            ClassApp.ClassCon.Connection.Subject.Add(newSubject);
             try
             {
                 ClassApp.ClassCon.Connection.SaveChanges();
@@ -51,6 +52,7 @@ namespace AtendaanceProject.WinApp
                 MessageBox.Show($"{ex.Message}", "ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void btnLeave_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

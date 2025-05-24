@@ -26,8 +26,8 @@ namespace AtendaanceProject.PageApp
         public AdminGroupPage()
         {
             InitializeComponent();
-            Groups = new List<Groupi>(ClassApp.ClassCon.Connection.Groupi);
-            Specialitys = new List<Speciality>(ClassApp.ClassCon.Connection.Speciality);
+            Groups = new List<Groupi>(ClassApp.ClassCon.Connection.Groupi.Where(u => u.is_delete != true));
+            Specialitys = new List<Speciality>(ClassApp.ClassCon.Connection.Speciality.Where(u => u.is_delete != true));
             Specialitys.Insert(0, new Speciality() { id = -1, title = "all" });
             this.DataContext = this;
         }
@@ -35,11 +35,8 @@ namespace AtendaanceProject.PageApp
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             var groupEdit = (sender as Button).DataContext as Groupi;
-            var editGroupWindow = new WinApp.EditGroupWindow { DataContext = groupEdit };
-            if (editGroupWindow.ShowDialog() == true)
-            {
-                ListGroup.ItemsSource = new List<Groupi>(ClassApp.ClassCon.Connection.Groupi.Where(u => u.is_delete != true).ToList());
-            }
+            WinApp.EditGroupWindow editGroup = new WinApp.EditGroupWindow(groupEdit);
+            editGroup.Show();
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -63,11 +60,11 @@ namespace AtendaanceProject.PageApp
             string _searchLine = txtsearchik.Text;
             if (_searchLine == "")
             {
-                ListGroup.ItemsSource = Groups.ToList();
+                ListGroup.ItemsSource = Groups.Where(u => u.is_delete != true).ToList();
             }
             else
             {
-                ListGroup.ItemsSource = Groups.Where(u => u.title.StartsWith(_searchLine, StringComparison.OrdinalIgnoreCase)).ToList();
+                ListGroup.ItemsSource = Groups.Where(u => u.title.StartsWith(_searchLine, StringComparison.OrdinalIgnoreCase) && u.is_delete != true).ToList();
             }
         }
         private void CBfilterSpeciality_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -75,11 +72,11 @@ namespace AtendaanceProject.PageApp
             var selectedSpeciaility = CBfilterSpeciality.SelectedItem as Speciality;
             if (selectedSpeciaility.id != -1)
             {
-                ListGroup.ItemsSource = Groups.Where(u => u.id_speciality == selectedSpeciaility.id).ToList();
+                ListGroup.ItemsSource = Groups.Where(u => u.id_speciality == selectedSpeciaility.id && u.is_delete != true).ToList();
             }
             else
             {
-                ListGroup.ItemsSource = Groups.ToList();
+                ListGroup.ItemsSource = Groups.Where(u => u.is_delete != true).ToList();
             }
         }
     }

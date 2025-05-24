@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AtendaanceProject.ADOApp;
+using AtendaanceProject.WinApp;
 
 namespace AtendaanceProject.PageApp
 {
@@ -26,7 +27,7 @@ namespace AtendaanceProject.PageApp
         public AdminStudentPage()
         {
             InitializeComponent();
-            Students = new List<Student>(ClassApp.ClassCon.Connection.Student);
+            Students = new List<Student>(ClassApp.ClassCon.Connection.Student.Where(u => u.is_delete != true));
             Groups = new List<Groupi>(ClassApp.ClassCon.Connection.Groupi.Where(u => u.is_delete != true));
             Groups.Insert(0, new Groupi() { id = -1, title = "all" });
             this.DataContext = this;
@@ -42,11 +43,11 @@ namespace AtendaanceProject.PageApp
             var selectedGroup = CBfilterGroup.SelectedItem as Groupi;
             if (selectedGroup.id != -1)
             {
-                ListStudents.ItemsSource = Students.Where(u => u.id_group == selectedGroup.id).ToList();
+                ListStudents.ItemsSource = Students.Where(u => u.id_group == selectedGroup.id && u.is_delete != true).ToList();
             }
             else
             {
-                ListStudents.ItemsSource = Students.ToList();
+                ListStudents.ItemsSource = Students.Where(u => u.is_delete != true).ToList();
             }
         }
         private void searchik_TextChanged(object sender, TextChangedEventArgs e)
@@ -54,21 +55,18 @@ namespace AtendaanceProject.PageApp
             string _searchLine = txtsearchik.Text;
             if (_searchLine == "")
             {
-                ListStudents.ItemsSource = Students.ToList();
+                ListStudents.ItemsSource = Students.Where(u => u.is_delete != true).ToList();
             }
             else
             {
-                ListStudents.ItemsSource = Students.Where(u => u.surname.StartsWith(_searchLine, StringComparison.OrdinalIgnoreCase)).ToList();
+                ListStudents.ItemsSource = Students.Where(u => u.surname.StartsWith(_searchLine, StringComparison.OrdinalIgnoreCase) && u.is_delete != true).ToList();
             }
         }
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             var studentEdit = (sender as Button).DataContext as Student;
-            var editStudentWindow = new WinApp.EditStudentWindow { DataContext = studentEdit };
-            if(editStudentWindow.ShowDialog() == true)
-            {
-                ListStudents.ItemsSource = new List<Student>(ClassApp.ClassCon.Connection.Student.Where(u => u.is_delete != true).ToList());
-            }
+            WinApp.EditStudentWindow editStudent = new WinApp.EditStudentWindow(studentEdit);
+            editStudent.Show();
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {

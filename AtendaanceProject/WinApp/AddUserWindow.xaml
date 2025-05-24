@@ -1,11 +1,11 @@
-﻿<Window x:Class="AtendaanceProject.WinApp.EditGroupWindow"
+﻿<Window x:Class="AtendaanceProject.WinApp.AddUserWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AtendaanceProject.WinApp"
         mc:Ignorable="d"
-        Title="EditGroupWindow" Height="450" Width="800">
+        Title="AddUserWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -18,33 +18,40 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Content="Редактирование" FontSize="24" Margin="5" Background="#8d99ae" Grid.ColumnSpan="3"/>
+        <Label Content="Добавление" FontSize="24" Margin="5" Background="#8d99ae" Grid.ColumnSpan="3"/>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Background="#8d99ae" Grid.ColumnSpan="3">
             <Button x:Name="btnLeave" Content="leave" Click="btnLeave_Click"  Width="80" Height="30" Margin="10"/>
             <Button x:Name="btnSave" Content="save" Click="btnSave_Click"  Width="80" Height="30" Margin="10"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
-                <Label Content="новая специальность" Width="150"/>
-                <ComboBox ItemsSource="{Binding specialitys}" x:Name="CBSpeciality" Height="30" Width="120">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding title}"/>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="роль" Width="80"/>
+                <ComboBox x:Name="CBrole" Height="30" Width="80"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Width="80">
+                    <Label Content="логин"/>
+                    <Label Content="пароль"/>
+                </StackPanel>
+                <StackPanel Width="80">
+                    <TextBox x:Name="txtLogin" Height="26"/>
+                    <TextBox x:Name="txtPassword" Height="26"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel Width="80">
-                <Label Content="название"/>
-                <Label Content="курс"/>
+                <Label Content="фамилия"/>
+                <Label Content="имя"/>
+                <Label Content="отчесвто"/>
             </StackPanel>
             <StackPanel Width="80">
-                <TextBox x:Name="txtGroupTitle"/>
-                <TextBox x:Name="txtGroupCourse"/>
+                <TextBox x:Name="txtSurname" Height="26"/>
+                <TextBox x:Name="txtName" Height="26"/>
+                <TextBox x:Name="txtPatronymic" Height="26"/>
             </StackPanel>
         </StackPanel>
     </Grid>

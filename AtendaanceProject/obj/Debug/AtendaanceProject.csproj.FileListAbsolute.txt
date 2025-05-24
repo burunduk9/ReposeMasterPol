@@ -57,3 +57,7 @@ C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\EditGroupWindow.baml
 C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\EditSpecialityWindow.baml
 C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\PageApp\TeacherAtendancePage.g.cs
 C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\PageApp\TeacherAtendancePage.baml
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\AddSubjectWindow.g.cs
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\AddSubjectWindow.baml
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\EditSubjectWindow.g.cs
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\EditSubjectWindow.baml

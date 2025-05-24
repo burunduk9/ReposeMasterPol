@@ -9,6 +9,97 @@
       Title="AdminUserPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--vmvmvmvmvmvmvmvmvmvmv-->
+        <StackPanel>
+            <Label Content="search"/>
+            <TextBox x:Name="txtsearchik" TextChanged="txtsearchik_TextChanged"/>
+            <Label Content="filter"/>
+            <ComboBox x:Name="CBfilterRole" ItemsSource="{Binding Roles}" SelectionChanged="CBfilterRole_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding title}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button x:Name="btnAddUser" Content="add user" Click="btnAddUser_Click"/>
+        </StackPanel>
+        <!--vmvmvmvmvmvmvmvmvmvmv-->
+        <StackPanel Grid.Column="1">
+            <ScrollViewer MinHeight="600">
+                <ListView x:Name="ListUser" ItemsSource="{Binding Users}">
+                    <ListView.View>
+                        <GridView>
+                            <!--vmvmvmvmvmvmvmvmvmvmv-->
+                            <GridViewColumn Header="surname" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding surname}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="name" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding name}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="patronymic" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding patronymic}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!--vmvmvmvmvmvmvmvmvmvmv-->
+                            <GridViewColumn Header="role" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Role.title}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="login" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding login}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            
+                            <GridViewColumn Header="password" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding password}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            
+                            
+                            <!--vmvmvmvmvmvmvmvmvmvmv-->
+                            <GridViewColumn Header="support buttons" Width="180">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="btnEdit" Content="edit" Click="btnEdit_Click"/>
+                                            <Button x:Name="btnDelete" Content="delete" Click="btnDelete_Click"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!--vmvmvmvmvmvmvmvmvmvmv-->
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </StackPanel>
     </Grid>
 </Page>

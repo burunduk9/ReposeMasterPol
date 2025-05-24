@@ -21,10 +21,17 @@ namespace AtendaanceProject.WinApp
     /// </summary>
     public partial class EditGroupWindow : Window
     {
-        public EditGroupWindow()
+        public static Groupi group1 = new Groupi();
+        public static List<Speciality> specialitys { get; set; }
+        public EditGroupWindow(Groupi groupEdit)
         {
             InitializeComponent();
-            LoadSpeciality();
+            specialitys = new List<Speciality>(ClassApp.ClassCon.Connection.Speciality.Where(u => u.is_delete != true).ToList());
+            group1 = groupEdit;
+            txtGroupTitle.Text = group1.title;
+            txtGroupCourse.Text = (group1.course).ToString();
+            CBSpeciality.SelectedItem = specialitys.FirstOrDefault(u => u.id == group1.Speciality.id);
+            this.DataContext = this;
         }
 
         private void btnLeave_Click(object sender, RoutedEventArgs e)
@@ -34,13 +41,9 @@ namespace AtendaanceProject.WinApp
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            var editGroup = new AtendaanceProject.ADOApp.Groupi();
-            var selectedSpeciality = CBSpeciality.SelectedItem as Speciality;
-            string title1 = txtGroupTitle.Text;
-            string course1 = txtGroupCourse.Text;
-            // крч такой прикол 
-            // группа не меняются
-            int speciality1 = selectedSpeciality.id;
+            group1.title = txtGroupTitle.Text;
+            group1.course = Convert.ToInt32(txtGroupCourse.Text);
+            group1.id_speciality = (CBSpeciality.SelectedItem as Speciality).id;
             try
             {
                 ClassApp.ClassCon.Connection.SaveChanges();
@@ -51,11 +54,6 @@ namespace AtendaanceProject.WinApp
             {
                 MessageBox.Show($"{ex.Message}", "ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-        public void LoadSpeciality()
-        {
-            CBSpeciality.ItemsSource = ClassApp.ClassCon.Connection.Speciality.Where(u => u.is_delete != true).ToList();
-            CBSpeciality.DisplayMemberPath = "title";
         }
     }
 }

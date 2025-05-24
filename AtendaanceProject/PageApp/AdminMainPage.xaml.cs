@@ -44,7 +44,7 @@ namespace AtendaanceProject.PageApp
 
         private void btnSubject_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrameAdmin.NavigationService.Navigate(new PageApp.AdminSubjectPage());
         }
 
         private void btnOtchet_Click(object sender, RoutedEventArgs e)

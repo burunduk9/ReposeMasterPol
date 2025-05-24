@@ -17,28 +17,34 @@ using AtendaanceProject.ADOApp;
 namespace AtendaanceProject.WinApp
 {
     /// <summary>
-    /// Логика взаимодействия для EditSpecialityWindow.xaml
+    /// Логика взаимодействия для EditUserWindow.xaml
     /// </summary>
-    public partial class EditSpecialityWindow : Window
+    public partial class EditUserWindow : Window
     {
-        public static Speciality speciality1 = new Speciality();
-        public EditSpecialityWindow(Speciality specialityEdit)
+        public static User user1 = new User();
+        public static List<Role> Roles { get; set; }
+        public EditUserWindow(User userEdit)
         {
             InitializeComponent();
-            speciality1 = specialityEdit;
-            txtSpecialityTitle.Text = speciality1.title;
-            txtSpecialityDescription.Text = speciality1.description;
+            Roles = new List<Role>(ClassApp.ClassCon.Connection.Role.ToList());
+            user1 = userEdit;
+            txtUserSurname.Text = user1.surname;
+            txtUserName.Text = user1.name;
+            txtUserPatronymic.Text = user1.patronymic;
+            txtLogin.Text = user1.login;
+            txtPassword.Text = user1.password;
+            CBrole.SelectedItem = Roles.FirstOrDefault(u => u.id == user1.Role.id);
             this.DataContext = this;
         }
 
-        private void btnLeave_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            speciality1.title = txtSpecialityTitle.Text;
-            speciality1.description = txtSpecialityDescription.Text;
+            user1.surname = txtUserSurname.Text;
+            user1.name = txtUserName.Text;
+            user1.patronymic = txtUserPatronymic.Text;
+            user1.id_role = (CBrole.SelectedItem as Role).id;
+            user1.login = txtLogin.Text;
+            user1.password = txtPassword.Text;
             try
             {
                 ClassApp.ClassCon.Connection.SaveChanges();
@@ -49,6 +55,10 @@ namespace AtendaanceProject.WinApp
             {
                 MessageBox.Show($"{ex.Message}", "ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+        private void btnLeave_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

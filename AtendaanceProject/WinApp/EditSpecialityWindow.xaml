@@ -30,8 +30,8 @@
                 <Label Content="описание"/>
             </StackPanel>
             <StackPanel Width="280">
-                <TextBox x:Name="txtSpecialityTitle" Text="{Binding title}"/>
-                <TextBox x:Name="txtSpecialityDescription" Text="{Binding description}"/>
+                <TextBox x:Name="txtSpecialityTitle"/>
+                <TextBox x:Name="txtSpecialityDescription"/>
             </StackPanel>
         </StackPanel>
     </Grid>
