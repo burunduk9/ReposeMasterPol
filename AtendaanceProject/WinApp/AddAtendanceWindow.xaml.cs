@@ -26,8 +26,6 @@ namespace AtendaanceProject.WinApp
         public AddAtendanceWindow()
         {
             InitializeComponent();
-            Schedules = new List<Schedule>(ClassApp.ClassCon.Connection.Schedule);
-            this.DataContext = this;
             LoadAtendance();
             LoadStudent();
             LoadSchedule();
@@ -37,39 +35,39 @@ namespace AtendaanceProject.WinApp
         {
             this.Close();
         }
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            if (CBstudent.SelectedItem != null || CBsubject.SelectedItem != null || CBatendance.SelectedItem != null)
+            {
+                MessageBox.Show("заполните поля");
+                return;
+            }
             var selectedStudent = CBstudent.SelectedItem as Student;
             var selectedSchedule = CBsubject.SelectedItem as Schedule;
             var selectedAtendance = CBatendance.SelectedItem as AtendanceType;
-            var selectedDate = datePanel.SelectedDate;
-            Journal newJornal = new Journal
+            var newAtendance = new Journal
             {
-                //id_student = Convert.ToInt32(txtStudent.Text),
-                //id_schedule = Convert.ToInt32(txtSubject.Text),
-                //id_atendance = Convert.ToInt32(txtAtendance.Text),
-                id_student = Convert.ToInt32(selectedStudent.id),
-                id_schedule = Convert.ToInt32(selectedSchedule.id),
-                id_atendance = Convert.ToInt32(selectedAtendance.id),
-
-                date = Convert.ToDateTime(selectedDate),
+                id_student = selectedStudent.id,
+                id_schedule = selectedSchedule.id,
+                id_atendance = selectedAtendance.id,
+                date = datePanel.SelectedDate,
                 is_delete = false
-            };
-            ClassApp.ClassCon.Connection.Journal.Add(newJornal);
-         
+            };           
+            ClassApp.ClassCon.Connection.Journal.Add(newAtendance);
+            try
+            {
                 ClassApp.ClassCon.Connection.SaveChanges();
                 MessageBox.Show("добавление прошло успешно", "уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
-            
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"{ex.Message}", "ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         public void LoadStudent()
         {
-            CBstudent.ItemsSource = ClassApp.ClassCon.Connection.Student.ToList();
+            CBstudent.ItemsSource = ClassApp.ClassCon.Connection.Student.Where(u => u.is_delete != true).ToList();
             CBstudent.DisplayMemberPath = "surname";
         }
         public void LoadSchedule()
@@ -82,6 +80,5 @@ namespace AtendaanceProject.WinApp
             CBatendance.ItemsSource = ClassApp.ClassCon.Connection.AtendanceType.ToList();
             CBatendance.DisplayMemberPath = "title";
         }
-
     }
 }

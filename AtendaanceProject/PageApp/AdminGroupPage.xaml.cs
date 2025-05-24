@@ -79,5 +79,9 @@ namespace AtendaanceProject.PageApp
                 ListGroup.ItemsSource = Groups.Where(u => u.is_delete != true).ToList();
             }
         }
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            Groups = new List<Groupi>(ClassApp.ClassCon.Connection.Groupi.Where(u => u.is_delete != true));
+        }
     }
 }

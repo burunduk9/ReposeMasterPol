@@ -64,5 +64,9 @@ namespace AtendaanceProject.PageApp
                 ListSpeciality.ItemsSource = new List<Speciality>(ClassApp.ClassCon.Connection.Speciality.Where(u => u.is_delete != true).ToList());
             }
         }
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            Specialitys = new List<Speciality>(ClassApp.ClassCon.Connection.Speciality.Where(u => u.is_delete != true));
+        }
     }
 }

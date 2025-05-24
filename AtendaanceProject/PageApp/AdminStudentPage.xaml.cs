@@ -80,5 +80,9 @@ namespace AtendaanceProject.PageApp
                 ListStudents.ItemsSource = new List<Student>(ClassApp.ClassCon.Connection.Student.Where(u => u.is_delete != true).ToList());
             }
         }
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            Students = new List<Student>(ClassApp.ClassCon.Connection.Student.Where(u => u.is_delete != true));
+        }
     }
 }

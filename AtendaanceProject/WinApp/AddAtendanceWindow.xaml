@@ -24,7 +24,7 @@
             <Button x:Name="btnSave" Content="save" Click="btnSave_Click"  Width="80" Height="30" Margin="10"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="1">
+        <StackPanel Grid.Column="0" Grid.Row="1">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Label Content="студент" Width="60"/>
                 <ComboBox x:Name="CBstudent" Height="26"/>
@@ -48,7 +48,7 @@
             <DatePicker Name="datePanel"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+        <!--<StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel Width="80">
                 <Label Content="студент"/>
                 <Label Content="предмет"/>
@@ -61,6 +61,6 @@
                 <TextBox x:Name="txtAtendance" Height="26"/>
                 <TextBox x:Name="txtDate" Height="26"/>
             </StackPanel>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Window>

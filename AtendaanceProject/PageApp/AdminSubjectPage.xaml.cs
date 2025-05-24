@@ -64,5 +64,9 @@ namespace AtendaanceProject.PageApp
                 ListSubject.ItemsSource = new List<Subject>(ClassApp.ClassCon.Connection.Subject.Where(u => u.is_delete != true).ToList());
             }
         }
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            Subjects = new List<Subject>(ClassApp.ClassCon.Connection.Subject.Where(u => u.is_delete != true));
+        }
     }
 }

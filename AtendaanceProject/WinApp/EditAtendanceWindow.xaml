@@ -7,6 +7,66 @@
         mc:Ignorable="d"
         Title="EditAtendanceWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Редактирование" FontSize="24" Margin="5" Background="#8d99ae" Grid.ColumnSpan="3"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Background="#8d99ae" Grid.ColumnSpan="3">
+            <Button x:Name="btnLeave" Content="leave" Click="btnLeave_Click"  Width="80" Height="30" Margin="10"/>
+            <Button x:Name="btnSave" Content="save" Click="btnSave_Click"  Width="80" Height="30" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                <Label Content="студент" Width="120"/>
+                <ComboBox ItemsSource="{Binding students}" x:Name="CBstudents" Height="30" Width="120">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding surname}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                <Label Content="предмет" Width="120"/>
+                <ComboBox ItemsSource="{Binding schedules}" x:Name="CBschedule" Height="30" Width="120">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding id}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                <Label Content="отметка" Width="120"/>
+                <ComboBox ItemsSource="{Binding atendances}" x:Name="CBatendance" Height="30" Width="120">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding title}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                <Label Content="дата рождения" Width="120"/>
+                <TextBox x:Name="txtBirthday" Text="{Binding birthday}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                <Label Content="новая дата" Width="120"/>
+                <DatePicker x:Name="datePanel"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

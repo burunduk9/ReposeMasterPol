@@ -27,6 +27,7 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <Button x:Name="btnAddUser" Content="add user" Click="btnAddUser_Click"/>
+            <Button x:Name="btnRefresh" Content="refresh" Click="btnRefresh_Click"/>
         </StackPanel>
         <!--vmvmvmvmvmvmvmvmvmvmv-->
         <StackPanel Grid.Column="1">

@@ -51,6 +51,7 @@
             </ComboBox>
             
             <Button x:Name="btnAddAtendance" Content="add atendance" Click="btnAddAtendance_Click"/>
+            <Button x:Name="btnRefresh" Content="refresh" Click="btnRefresh_Click"/>
             <DatePicker x:Name="datePanel" SelectedDateChanged="datePanel_SelectedDateChanged"/>
         </StackPanel>
         <!--vmvmvmvmvmvmvmvmvmvmv-->

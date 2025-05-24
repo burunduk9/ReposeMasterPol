@@ -61,3 +61,7 @@ C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\AddSubjectWindow.g.c
 C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\AddSubjectWindow.baml
 C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\EditSubjectWindow.g.cs
 C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\EditSubjectWindow.baml
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\AddUserWindow.g.cs
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\EditUserWindow.g.cs
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\AddUserWindow.baml
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\EditUserWindow.baml

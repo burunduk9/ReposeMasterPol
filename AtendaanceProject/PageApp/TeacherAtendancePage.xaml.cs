@@ -29,9 +29,9 @@ namespace AtendaanceProject.PageApp
         {
             InitializeComponent();
             Atendances = new List<Journal>(ClassApp.ClassCon.Connection.Journal);
-            Subjects = new List<Subject>(ClassApp.ClassCon.Connection.Subject);
-            Students = new List<Student>(ClassApp.ClassCon.Connection.Student);
-            Groups = new List<Groupi>(ClassApp.ClassCon.Connection.Groupi);
+            Subjects = new List<Subject>(ClassApp.ClassCon.Connection.Subject.Where(u => u.is_delete != true));
+            Students = new List<Student>(ClassApp.ClassCon.Connection.Student.Where(u => u.is_delete != true));
+            Groups = new List<Groupi>(ClassApp.ClassCon.Connection.Groupi.Where(u => u.is_delete != true));
             Subjects.Insert(0, new Subject() { id = -1, title = "all" });
             Students.Insert(0, new Student() { id = -1, surname = "all" });
             Groups.Insert(0, new Groupi() { id = -1, title = "all" });
@@ -43,11 +43,11 @@ namespace AtendaanceProject.PageApp
             string _searchLine = txtsearchik.Text;
             if (_searchLine == "")
             {
-                ListAtendance.ItemsSource = Atendances.ToList();
+                ListAtendance.ItemsSource = Atendances.Where(u => u.is_delete != true).ToList();
             }
             else
             {
-                ListAtendance.ItemsSource = Atendances.Where(u => u.Student.surname.StartsWith(_searchLine, StringComparison.OrdinalIgnoreCase)).ToList();
+                ListAtendance.ItemsSource = Atendances.Where(u => u.Student.surname.StartsWith(_searchLine, StringComparison.OrdinalIgnoreCase) && u.is_delete != true).ToList();
             }
         }
         private void CBfilterGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -94,11 +94,8 @@ namespace AtendaanceProject.PageApp
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             var atendanceEdit = (sender as Button).DataContext as Journal;
-            var editAtendanceWindow = new WinApp.EditAtendanceWindow { DataContext = atendanceEdit };
-            if (editAtendanceWindow.ShowDialog() == true)
-            {
-                ListAtendance.ItemsSource = new List<Journal>(ClassApp.ClassCon.Connection.Journal.Where(u => u.is_delete != true).ToList());
-            }
+            WinApp.EditAtendanceWindow editAtendance = new WinApp.EditAtendanceWindow(atendanceEdit);
+            editAtendance.Show();
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -119,6 +116,10 @@ namespace AtendaanceProject.PageApp
             {
                 ListAtendance.ItemsSource = Atendances.Where(u => u.date == _selectedDateToSearch).ToList();
             }
+        }
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            Atendances = new List<Journal>(ClassApp.ClassCon.Connection.Journal);
         }
     }
 }

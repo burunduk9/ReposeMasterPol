@@ -19,6 +19,7 @@
             <Label Content="search"/>
             <TextBox x:Name="txtsearchik" TextChanged="txtsearchik_TextChanged"/>
             <Button x:Name="btnAddSpeciality" Content="add speciality" Click="btnAddSpeciality_Click"/>
+            <Button x:Name="btnRefresh" Content="refresh" Click="btnRefresh_Click"/>
         </StackPanel>
         <!--vmvmvmvmvmvmvmvmvmvmv-->
         <StackPanel Grid.Column="1">
