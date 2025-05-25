@@ -24,5 +24,18 @@ namespace AtendaanceProject.PageApp
         {
             InitializeComponent();
         }
+
+        private void btnShowAtendance_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnShowSchedule_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnLeave_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageApp.AutoPage());
+        }
     }
 }

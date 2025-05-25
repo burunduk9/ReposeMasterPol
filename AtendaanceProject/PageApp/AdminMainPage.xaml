@@ -20,7 +20,8 @@
             <Button Margin="5" x:Name="btnSpeciality" Content="speciality" Click="btnSpeciality_Click"/>
             <Button Margin="5" x:Name="btnGroup" Content="group" Click="btnGroup_Click"/>
             <Button Margin="5" x:Name="btnSubject" Content="subject" Click="btnSubject_Click"/>
-            <Button Margin="5" x:Name="btnOtchet" Content="Otchet" Click="btnOtchet_Click"/>
+            <!--<Button Margin="5" x:Name="btnOtchet" Content="Otchet" Click="btnOtchet_Click"/>-->
+            <Button Margin="5" x:Name="btnLeave" Content="Leave" Click="btnLeave_Click"/>
         </StackPanel>
         <Frame x:Name="MainFrameAdmin" NavigationUIVisibility="Hidden" Grid.Row="1"/>
     </Grid>

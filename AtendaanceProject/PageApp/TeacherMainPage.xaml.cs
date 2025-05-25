@@ -24,5 +24,14 @@ namespace AtendaanceProject.PageApp
         {
             InitializeComponent();
         }
+
+        private void btnShowAtendanceList_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrameTeacher.NavigationService.Navigate(new PageApp.TeacherAtendancePage());
+        }
+        private void btnLeave_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageApp.AutoPage());
+        }
     }
 }

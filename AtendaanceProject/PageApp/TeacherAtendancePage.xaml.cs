@@ -21,6 +21,9 @@ namespace AtendaanceProject.PageApp
     /// </summary>
     public partial class TeacherAtendancePage : Page
     {
+        public bool CB1 = false;
+        public bool CB2 = false;
+        public bool CB3 = false;
         public List<Journal> Atendances { get; set; }
         public List<Subject> Subjects { get; set; }
         public List<Student> Students { get; set; }
@@ -28,7 +31,7 @@ namespace AtendaanceProject.PageApp
         public TeacherAtendancePage()
         {
             InitializeComponent();
-            Atendances = new List<Journal>(ClassApp.ClassCon.Connection.Journal);
+            Atendances = new List<Journal>(ClassApp.ClassCon.Connection.Journal.Where(u => u.is_delete != true));
             Subjects = new List<Subject>(ClassApp.ClassCon.Connection.Subject.Where(u => u.is_delete != true));
             Students = new List<Student>(ClassApp.ClassCon.Connection.Student.Where(u => u.is_delete != true));
             Groups = new List<Groupi>(ClassApp.ClassCon.Connection.Groupi.Where(u => u.is_delete != true));
@@ -52,39 +55,148 @@ namespace AtendaanceProject.PageApp
         }
         private void CBfilterGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            CB1 = true; 
             var selectedGroup = CBfilterGroup.SelectedItem as Groupi;
+            var selectedStudent = CBfilterStudent.SelectedItem as Student;
+            var selectedSubject = CBfilterSubject.SelectedItem as Subject;
             if (selectedGroup.id != -1)
             {
-                ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Groupi.id == selectedGroup.id).ToList();
+                if(CB2 == true)
+                {
+                    if (CB3 == true)
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Groupi.id == selectedGroup.id 
+                        && u.Student.surname == selectedStudent.surname && u.Schedule.Subject.id == selectedSubject.id 
+                        && u.is_delete != true).ToList();
+                    }
+                    else
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Groupi.id == selectedGroup.id 
+                        && u.Student.surname == selectedStudent.surname && u.is_delete != true).ToList();
+                    }
+                }
+                else
+                {
+                    if(CB3 == true)
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Groupi.id == selectedGroup.id 
+                        && u.Schedule.Subject.id == selectedSubject.id && u.is_delete != true).ToList();
+                    }
+                    else
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Groupi.id == selectedGroup.id 
+                        && u.is_delete != true).ToList();
+                    }
+                }
             }
             else
             {
-                ListAtendance.ItemsSource = Atendances.ToList();
+                ListAtendance.ItemsSource = Atendances.Where(u => u.is_delete != true).ToList();
+                CB1 = false;
             }
+                //ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Groupi.id == selectedGroup.id && u.is_delete != true).ToList();
         }
         private void CBfilterStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            CB2 = true;
+            var selectedGroup = CBfilterGroup.SelectedItem as Groupi;
             var selectedStudent = CBfilterStudent.SelectedItem as Student;
+            var selectedSubject = CBfilterSubject.SelectedItem as Subject;
             if (selectedStudent.id != -1)
             {
-                ListAtendance.ItemsSource = Atendances.Where(u => u.Student.surname == selectedStudent.surname).ToList();
+                if(CB1 == true)
+                {
+                    if (CB3 == true)
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Groupi.id == selectedGroup.id 
+                        && u.Student.surname == selectedStudent.surname && u.Schedule.Subject.id == selectedSubject.id 
+                        && u.is_delete != true).ToList();
+                    }
+                    else
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Groupi.id == selectedGroup.id 
+                        && u.Student.surname == selectedStudent.surname && u.is_delete != true).ToList();
+                    }
+                }
+                else
+                {
+                    if(CB3 == true)
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Student.surname == selectedStudent.surname 
+                        && u.Schedule.Subject.id == selectedSubject.id && u.is_delete != true).ToList();
+                    }
+                    else
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Student.surname == selectedStudent.surname 
+                        && u.is_delete != true).ToList();
+                    }
+                }
             }
             else
             {
-                ListAtendance.ItemsSource = Atendances.ToList();
+                ListAtendance.ItemsSource = Atendances.Where(u => u.is_delete != true).ToList();
+                CB2 = false;
             }
+            //var selectedStudent = CBfilterStudent.SelectedItem as Student;
+            //if (selectedStudent.id != -1)
+            //{
+            //    ListAtendance.ItemsSource = Atendances.Where(u => u.Student.surname == selectedStudent.surname && u.is_delete != true).ToList();
+            //}
+            //else
+            //{
+            //    ListAtendance.ItemsSource = Atendances.Where(u => u.is_delete != true).ToList();
+            //}
         }
         private void CBfilterSubject_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            CB3 = true;
+            var selectedGroup = CBfilterGroup.SelectedItem as Groupi;
+            var selectedStudent = CBfilterStudent.SelectedItem as Student;
             var selectedSubject = CBfilterSubject.SelectedItem as Subject;
             if (selectedSubject.id != -1)
             {
-                ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Subject.id == selectedSubject.id).ToList();
+                if(CB1 == true)
+                {
+                    if(CB2 == true)
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Groupi.id == selectedGroup.id 
+                        && u.Student.surname == selectedStudent.surname && u.Schedule.Subject.id == selectedSubject.id 
+                        && u.is_delete != true).ToList();
+                    }
+                    else
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Groupi.id == selectedGroup.id 
+                        && u.Schedule.Subject.id == selectedSubject.id && u.is_delete != true).ToList();
+                    }
+                }
+                else
+                {
+                    if(CB2 == true)
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Student.surname == selectedStudent.surname 
+                        && u.Schedule.Subject.id == selectedSubject.id && u.is_delete != true).ToList();
+                    }
+                    else
+                    {
+                        ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Subject.id == selectedSubject.id 
+                        && u.is_delete != true).ToList();
+                    }
+                }
             }
             else
             {
-                ListAtendance.ItemsSource = Atendances.ToList();
+                ListAtendance.ItemsSource = Atendances.Where(u => u.is_delete != true).ToList();
+                CB3 = false;
             }
+            //var selectedSubject = CBfilterSubject.SelectedItem as Subject;
+            //if (selectedSubject.id != -1)
+            //{
+            //    ListAtendance.ItemsSource = Atendances.Where(u => u.Schedule.Subject.id == selectedSubject.id && u.is_delete != true ).ToList();
+            //}
+            //else
+            //{
+            //    ListAtendance.ItemsSource = Atendances.Where(u => u.is_delete != true).ToList();
+            //}
         }
         private void btnAddAtendance_Click(object sender, RoutedEventArgs e)
         {
@@ -119,7 +231,7 @@ namespace AtendaanceProject.PageApp
         }
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
-            Atendances = new List<Journal>(ClassApp.ClassCon.Connection.Journal);
+            Atendances = new List<Journal>(ClassApp.ClassCon.Connection.Journal.Where(u => u.is_delete != true));
         }
     }
 }

@@ -51,5 +51,10 @@ namespace AtendaanceProject.PageApp
         {
 
         }
+
+        private void btnLeave_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageApp.AutoPage());
+        }
     }
 }
