@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AtendaanceProject"
         mc:Ignorable="d"
-        Title="Учет посещаемости студентов" Height="450" Width="800">
+        Title="Учет посещаемости студентов" Height="450" Width="800" Icon="/Resourse/IconBookImage.ico">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
