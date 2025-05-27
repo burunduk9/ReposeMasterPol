@@ -16,9 +16,9 @@
 
         <!--vmvmvmvmvmvmvmvmvmvmv-->
         <StackPanel>
-            <Label Content="search"/>
+            <Label Content="поисковик"/>
             <TextBox x:Name="txtsearchik" TextChanged="txtsearchik_TextChanged"/>
-            <Label Content="filter"/>
+            <Label Content="фильтр"/>
             <ComboBox x:Name="CBfilterRole" ItemsSource="{Binding Roles}" SelectionChanged="CBfilterRole_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -26,8 +26,8 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button x:Name="btnAddUser" Content="add user" Click="btnAddUser_Click"/>
-            <Button x:Name="btnRefresh" Content="refresh" Click="btnRefresh_Click"/>
+            <Button x:Name="btnAddUser" Content="добавить пользователя" Click="btnAddUser_Click"/>
+            <Button x:Name="btnRefresh" Content="обновить" Click="btnRefresh_Click"/>
         </StackPanel>
         <!--vmvmvmvmvmvmvmvmvmvmv-->
         <StackPanel Grid.Column="1">
@@ -36,7 +36,7 @@
                     <ListView.View>
                         <GridView>
                             <!--vmvmvmvmvmvmvmvmvmvmv-->
-                            <GridViewColumn Header="surname" Width="80">
+                            <GridViewColumn Header="фамилия" Width="160">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding surname}"/>
@@ -44,7 +44,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header="name" Width="80">
+                            <GridViewColumn Header="имя" Width="160">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding name}"/>
@@ -52,7 +52,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header="patronymic" Width="80">
+                            <GridViewColumn Header="отчество" Width="160">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding patronymic}"/>
@@ -60,7 +60,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <!--vmvmvmvmvmvmvmvmvmvmv-->
-                            <GridViewColumn Header="role" Width="80">
+                            <GridViewColumn Header="роль" Width="120">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding Role.title}"/>
@@ -68,7 +68,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header="login" Width="80">
+                            <GridViewColumn Header="логин" Width="80">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding login}"/>
@@ -76,7 +76,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             
-                            <GridViewColumn Header="password" Width="80">
+                            <GridViewColumn Header="пароль" Width="80">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding password}"/>
@@ -86,7 +86,7 @@
                             
                             
                             <!--vmvmvmvmvmvmvmvmvmvmv-->
-                            <GridViewColumn Header="support buttons" Width="180">
+                            <GridViewColumn Header="вспомогательные кнопки" Width="240">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">

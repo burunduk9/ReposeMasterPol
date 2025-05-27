@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AtendaanceProject.ADOApp;
 
 namespace AtendaanceProject.PageApp
 {
@@ -20,18 +21,21 @@ namespace AtendaanceProject.PageApp
     /// </summary>
     public partial class StudentMainPage : Page
     {
-        public StudentMainPage()
+        Student student1 = new Student();
+        public StudentMainPage(Student student)
         {
             InitializeComponent();
+            student1 = student;
+            this.DataContext = this;
         }
 
         private void btnShowAtendance_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrameStudent.NavigationService.Navigate(new PageApp.StudentAtendancePage(student1));
         }
         private void btnShowSchedule_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrameStudent.NavigationService.Navigate(new PageApp.StudentSchedulePage(student1));
         }
         private void btnLeave_Click(object sender, RoutedEventArgs e)
         {

@@ -16,10 +16,10 @@
 
         <!--vmvmvmvmvmvmvmvmvmvmv-->
         <StackPanel>
-            <Label Content="search"/>
+            <Label Content="поисковик"/>
             <TextBox x:Name="txtsearchik" TextChanged="txtsearchik_TextChanged"/>
-            <Button x:Name="btnAddSpeciality" Content="add speciality" Click="btnAddSpeciality_Click"/>
-            <Button x:Name="btnRefresh" Content="refresh" Click="btnRefresh_Click"/>
+            <Button x:Name="btnAddSpeciality" Content="добавить специальность" Click="btnAddSpeciality_Click"/>
+            <Button x:Name="btnRefresh" Content="обновить" Click="btnRefresh_Click"/>
         </StackPanel>
         <!--vmvmvmvmvmvmvmvmvmvmv-->
         <StackPanel Grid.Column="1">
@@ -28,7 +28,7 @@
                     <ListView.View>
                         <GridView>
                             <!--vmvmvmvmvmvmvmvmvmvmv-->
-                            <GridViewColumn Header="title" Width="80">
+                            <GridViewColumn Header="название" Width="180">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding title}"/>
@@ -36,7 +36,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header="description" Width="280">
+                            <GridViewColumn Header="описание" Width="280">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding description}"/>
@@ -44,12 +44,12 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <!--vmvmvmvmvmvmvmvmvmvmv-->
-                            <GridViewColumn Header="support buttons" Width="180">
+                            <GridViewColumn Header="вспомогательные кнопки" Width="180">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button x:Name="btnEdit" Content="edit" Click="btnEdit_Click"/>
-                                            <Button x:Name="btnDelete" Content="delete" Click="btnDelete_Click"/>
+                                            <Button x:Name="btnEdit" Content="редактировать" Click="btnEdit_Click"/>
+                                            <Button x:Name="btnDelete" Content="удалить" Click="btnDelete_Click"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>

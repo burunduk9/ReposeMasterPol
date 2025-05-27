@@ -16,9 +16,9 @@
 
         <!--vmvmvmvmvmvmvmvmvmvmv-->
         <StackPanel>
-            <Label Content="search"/>
+            <Label Content="поисковик"/>
             <TextBox x:Name="txtsearchik" TextChanged="searchik_TextChanged"/>
-            <Label Content="filter"/>
+            <Label Content="фильтр"/>
             <ComboBox x:Name="CBfilterGroup" ItemsSource="{Binding Groups}" SelectionChanged="CBfilterGroup_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -26,8 +26,8 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button x:Name="btnAddStudent" Content="add student" Click="btnAddStudent_Click"/>
-            <Button x:Name="btnRefresh" Content="refresh" Click="btnRefresh_Click"/>
+            <Button x:Name="btnAddStudent" Content="добавить студента" Click="btnAddStudent_Click"/>
+            <Button x:Name="btnRefresh" Content="обновить" Click="btnRefresh_Click"/>
         </StackPanel>
         <!--vmvmvmvmvmvmvmvmvmvmv-->
         <StackPanel Grid.Column="1">
@@ -36,7 +36,7 @@
                     <ListView.View>
                         <GridView>
                             <!--vmvmvmvmvmvmvmvmvmvmv-->
-                            <GridViewColumn Header="surname" Width="80">
+                            <GridViewColumn Header="фамилия" Width="160">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding surname}"/>
@@ -44,7 +44,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header="name" Width="80">
+                            <GridViewColumn Header="имя" Width="160">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding name}"/>
@@ -52,7 +52,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header="patronymic" Width="80">
+                            <GridViewColumn Header="отчество" Width="160">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding patronymic}"/>
@@ -60,7 +60,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <!--vmvmvmvmvmvmvmvmvmvmv-->
-                            <GridViewColumn Header="group" Width="80">
+                            <GridViewColumn Header="группа" Width="80">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding Groupi.title}"/>
@@ -68,7 +68,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header="birthday" Width="80">
+                            <GridViewColumn Header="дата рождения" Width="80">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Label Content="{Binding birthday}"/>
@@ -76,12 +76,12 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <!--vmvmvmvmvmvmvmvmvmvmv-->
-                            <GridViewColumn Header="support buttons" Width="180">
+                            <GridViewColumn Header="вспомогательные кнопки" Width="240">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button x:Name="btnEdit" Content="edit" Click="btnEdit_Click"/>
-                                            <Button x:Name="btnDelete" Content="delete" Click="btnDelete_Click"/>
+                                            <Button x:Name="btnEdit" Content="редактировать" Click="btnEdit_Click"/>
+                                            <Button x:Name="btnDelete" Content="удалить" Click="btnDelete_Click"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>

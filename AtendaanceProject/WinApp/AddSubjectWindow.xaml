@@ -20,8 +20,8 @@
 
         <Label Content="Добавление" FontSize="24" Margin="5" Background="#8d99ae" Grid.ColumnSpan="3"/>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Background="#8d99ae" Grid.ColumnSpan="3">
-            <Button x:Name="btnLeave" Content="leave" Click="btnLeave_Click"  Width="80" Height="30" Margin="10"/>
-            <Button x:Name="btnSave" Content="save" Click="btnSave_Click"  Width="80" Height="30" Margin="10"/>
+            <Button x:Name="btnLeave" Content="выйти" Click="btnLeave_Click"  Width="80" Height="30" Margin="10"/>
+            <Button x:Name="btnSave" Content="сохранить" Click="btnSave_Click"  Width="80" Height="30" Margin="10"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">

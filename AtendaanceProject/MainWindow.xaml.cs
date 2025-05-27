@@ -23,8 +23,9 @@ namespace AtendaanceProject
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new PageApp.TeacherAtendancePage());
+            //MainFrame.NavigationService.Navigate(new PageApp.TeacherMainPage());
             //MainFrame.NavigationService.Navigate(new PageApp.AdminMainPage());
+            MainFrame.NavigationService.Navigate(new PageApp.AutoPage());
 
         }
     }

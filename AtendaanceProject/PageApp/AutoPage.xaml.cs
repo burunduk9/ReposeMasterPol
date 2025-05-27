@@ -24,5 +24,38 @@ namespace AtendaanceProject.PageApp
         {
             InitializeComponent();
         }
+
+        private void btnAuto_Click(object sender, RoutedEventArgs e)
+        {
+            var user = ClassApp.ClassCon.Connection.User.Where(u => u.login == txtLog.Text && u.password == txtPas.Password).FirstOrDefault();
+            if (txtLog.Text != "" && txtPas.Password != null)
+            {
+                if (user != null)
+                {
+                    if (user.id_role == 1)
+                    {
+                        NavigationService.Navigate(new PageApp.TeacherMainPage());
+                        MessageBox.Show($"авторизация прошла успешно, добро пожаловать {user.surname} {user.name} {user.patronymic}");
+                    }
+                    else
+                    {
+                        NavigationService.Navigate(new PageApp.AdminMainPage());
+                        MessageBox.Show($"авторизация прошла успешно, добро пожаловать {user.surname} {user.name} {user.patronymic}");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("такого пользователя нет");
+                }
+            }
+            else
+            {
+                MessageBox.Show("поля не заполнены");
+            }
+        }
+        private void btnStudent_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageApp.StudentAutoPage());
+        }
     }
 }

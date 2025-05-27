@@ -1,5 +1,5 @@
 ﻿
-
+FC:\941\AtendaanceProject\AtendaanceProject\App.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\MainWindow.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\PageApp\AdminGroupPage.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\PageApp\AdminMainPage.xaml;;
@@ -8,9 +8,13 @@ FC:\941\AtendaanceProject\AtendaanceProject\PageApp\AdminStudentPage.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\PageApp\AdminSubjectPage.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\PageApp\AdminUserPage.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\PageApp\AutoPage.xaml;;
+FC:\941\AtendaanceProject\AtendaanceProject\PageApp\StudentAtendancePage.xaml;;
+FC:\941\AtendaanceProject\AtendaanceProject\PageApp\StudentAutoPage.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\PageApp\StudentMainPage.xaml;;
+FC:\941\AtendaanceProject\AtendaanceProject\PageApp\StudentSchedulePage.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\PageApp\TeacherAtendancePage.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\PageApp\TeacherMainPage.xaml;;
+FC:\941\AtendaanceProject\AtendaanceProject\PageApp\TeacherStudentPage.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\WinApp\AddAtendanceWindow.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\WinApp\AddGroupWindow.xaml;;
 FC:\941\AtendaanceProject\AtendaanceProject\WinApp\AddSpecialityWindow.xaml;;

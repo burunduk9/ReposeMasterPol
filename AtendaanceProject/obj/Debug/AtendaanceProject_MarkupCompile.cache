@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\941\AtendaanceProject\AtendaanceProject\App.xaml
-23738244959
+27-1819283262
 21663657201
-41-1346516560
+45953518901
 18-1756931125
-MainWindow.xaml;PageApp\AdminGroupPage.xaml;PageApp\AdminMainPage.xaml;PageApp\AdminSpecialityPage.xaml;PageApp\AdminStudentPage.xaml;PageApp\AdminSubjectPage.xaml;PageApp\AdminUserPage.xaml;PageApp\AutoPage.xaml;PageApp\StudentMainPage.xaml;PageApp\TeacherAtendancePage.xaml;PageApp\TeacherMainPage.xaml;WinApp\AddAtendanceWindow.xaml;WinApp\AddGroupWindow.xaml;WinApp\AddSpecialityWindow.xaml;WinApp\AddStudentWindow.xaml;WinApp\AddSubjectWindow.xaml;WinApp\AddUserWindow.xaml;WinApp\EditAtendanceWindow.xaml;WinApp\EditGroupWindow.xaml;WinApp\EditSpecialityWindow.xaml;WinApp\EditStudentWindow.xaml;WinApp\EditSubjectWindow.xaml;WinApp\EditUserWindow.xaml;
+MainWindow.xaml;PageApp\AdminGroupPage.xaml;PageApp\AdminMainPage.xaml;PageApp\AdminSpecialityPage.xaml;PageApp\AdminStudentPage.xaml;PageApp\AdminSubjectPage.xaml;PageApp\AdminUserPage.xaml;PageApp\AutoPage.xaml;PageApp\StudentAtendancePage.xaml;PageApp\StudentAutoPage.xaml;PageApp\StudentMainPage.xaml;PageApp\StudentSchedulePage.xaml;PageApp\TeacherAtendancePage.xaml;PageApp\TeacherMainPage.xaml;PageApp\TeacherStudentPage.xaml;WinApp\AddAtendanceWindow.xaml;WinApp\AddGroupWindow.xaml;WinApp\AddSpecialityWindow.xaml;WinApp\AddStudentWindow.xaml;WinApp\AddSubjectWindow.xaml;WinApp\AddUserWindow.xaml;WinApp\EditAtendanceWindow.xaml;WinApp\EditGroupWindow.xaml;WinApp\EditSpecialityWindow.xaml;WinApp\EditStudentWindow.xaml;WinApp\EditSubjectWindow.xaml;WinApp\EditUserWindow.xaml;
 
 False
 

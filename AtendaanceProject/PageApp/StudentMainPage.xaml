@@ -15,9 +15,9 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Margin="10">
-            <Button Margin="5" x:Name="btnShowAtendance" Content="show atendances" Click="btnShowAtendance_Click"/>
-            <Button Margin="5" x:Name="btnShowSchedule" Content="show schedule" Click="btnShowSchedule_Click"/>
-            <Button Margin="5" x:Name="btnLeave" Content="Leave" Click="btnLeave_Click"/>
+            <Button Margin="5" x:Name="btnShowAtendance" Content="посещаемость" Click="btnShowAtendance_Click"/>
+            <Button Margin="5" x:Name="btnShowSchedule" Content="расписание" Click="btnShowSchedule_Click"/>
+            <Button Margin="5" x:Name="btnLeave" Content="выйти" Click="btnLeave_Click"/>
         </StackPanel>
         <Frame x:Name="MainFrameStudent" NavigationUIVisibility="Hidden" Grid.Row="1"/>
     </Grid>

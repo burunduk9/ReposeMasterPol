@@ -9,6 +9,22 @@
       Title="AutoPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Авторизация" Grid.Column="1" FontSize="24"/>
+
+        <StackPanel VerticalAlignment="Center" Grid.Column="1">
+            <Label Content="логин"/>
+            <TextBox x:Name="txtLog"/>
+            <Label Content="пароль"/>
+            <PasswordBox x:Name="txtPas"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Button x:Name="btnAuto" Content="авторизоваться" Click="btnAuto_Click" Height="30" Margin="5"/>
+                <Button x:Name="btnStudent" Content="я студент" Click="btnStudent_Click" Height="30" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

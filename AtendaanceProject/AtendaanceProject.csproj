@@ -125,8 +125,20 @@
     <Compile Include="PageApp\AdminUserPage.xaml.cs">
       <DependentUpon>AdminUserPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageApp\StudentAtendancePage.xaml.cs">
+      <DependentUpon>StudentAtendancePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageApp\StudentAutoPage.xaml.cs">
+      <DependentUpon>StudentAutoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageApp\StudentSchedulePage.xaml.cs">
+      <DependentUpon>StudentSchedulePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageApp\TeacherAtendancePage.xaml.cs">
       <DependentUpon>TeacherAtendancePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageApp\TeacherStudentPage.xaml.cs">
+      <DependentUpon>TeacherStudentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinApp\AddAtendanceWindow.xaml.cs">
       <DependentUpon>AddAtendanceWindow.xaml</DependentUpon>
@@ -204,7 +216,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageApp\StudentAtendancePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageApp\StudentAutoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageApp\StudentMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageApp\StudentSchedulePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,6 +237,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageApp\TeacherMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageApp\TeacherStudentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

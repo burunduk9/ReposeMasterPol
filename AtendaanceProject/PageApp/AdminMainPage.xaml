@@ -15,13 +15,13 @@
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal" Margin="10">
-            <Button Margin="5" x:Name="btnUser" Content="user" Click="btnUser_Click"/>
-            <Button Margin="5" x:Name="btnStudent" Content="student" Click="btnStudent_Click"/>
-            <Button Margin="5" x:Name="btnSpeciality" Content="speciality" Click="btnSpeciality_Click"/>
-            <Button Margin="5" x:Name="btnGroup" Content="group" Click="btnGroup_Click"/>
-            <Button Margin="5" x:Name="btnSubject" Content="subject" Click="btnSubject_Click"/>
+            <Button Margin="5" x:Name="btnUser" Content="Пользователи" Click="btnUser_Click"/>
+            <Button Margin="5" x:Name="btnStudent" Content="студенты" Click="btnStudent_Click"/>
+            <Button Margin="5" x:Name="btnSpeciality" Content="специальности" Click="btnSpeciality_Click"/>
+            <Button Margin="5" x:Name="btnGroup" Content="групппы" Click="btnGroup_Click"/>
+            <Button Margin="5" x:Name="btnSubject" Content="предметы" Click="btnSubject_Click"/>
             <!--<Button Margin="5" x:Name="btnOtchet" Content="Otchet" Click="btnOtchet_Click"/>-->
-            <Button Margin="5" x:Name="btnLeave" Content="Leave" Click="btnLeave_Click"/>
+            <Button Margin="5" x:Name="btnLeave" Content="выйти" Click="btnLeave_Click"/>
         </StackPanel>
         <Frame x:Name="MainFrameAdmin" NavigationUIVisibility="Hidden" Grid.Row="1"/>
     </Grid>

@@ -33,5 +33,9 @@ namespace AtendaanceProject.PageApp
         {
             NavigationService.Navigate(new PageApp.AutoPage());
         }
+        private void btnShowStudentList_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrameTeacher.NavigationService.Navigate(new PageApp.TeacherStudentPage());
+        }
     }
 }

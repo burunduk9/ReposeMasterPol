@@ -65,3 +65,12 @@ C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\AddUserWindow.g.cs
 C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\EditUserWindow.g.cs
 C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\AddUserWindow.baml
 C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\WinApp\EditUserWindow.baml
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\PageApp\TeacherStudentPage.g.cs
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\PageApp\TeacherStudentPage.baml
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\PageApp\StudentAutoPage.g.cs
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\PageApp\StudentAutoPage.baml
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\PageApp\StudentAtendancePage.g.cs
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\PageApp\StudentSchedulePage.g.cs
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\PageApp\StudentAtendancePage.baml
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\PageApp\StudentSchedulePage.baml
+C:\941\AtendaanceProject\AtendaanceProject\obj\Debug\App.baml
